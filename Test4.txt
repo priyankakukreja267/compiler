@@ -1,0 +1,29 @@
+#-------------------Test Case - 4-----------------#
+DATA
+enum {?COMPILER = 1, ?NETWORKS = 2, ?DAA = 3, ?BAV = 4, ?MR = 5 } course;
+enum {?a = 1, ?b = 2, ?c = 3} fruit;
+int a;
+%%
+
+FUNCTION
+FUNC _f: void ->int
+{
+int a; 
+a = * a 4;
+@(a);
+}
+%%
+
+CODE
+course = ?COMPILER;
+#fruit = ?NETWORKS;#
+if(~ course ?COMPILER)
+{
+	course = ?NETWORKS;
+}
+
+else
+{
+	course = ?COMPILER;
+}
+%%

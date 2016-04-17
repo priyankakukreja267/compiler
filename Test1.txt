@@ -1,0 +1,30 @@
+#-------------------Test Case - 1-----------------#
+DATA
+int i = 1;
+int ans = 5;
+deci a1;
+word w;
+int a2, a3;
+int arr[8];
+%%
+
+FUNCTION
+FUNC _find: word a, int b, int c -> deci
+{
+	word ans;	
+#	ans = * + a b ^ b c; #
+	deci a1;
+	ans = * + a1 b ^ b c;
+	deci d;
+	@(d);
+}
+%%
+
+CODE
+arr[7] = 1;
+Take: a1;
+Take: a2;
+a3 = 2;
+i = _find(w, a2, a3); # Calculates the value of the expression #
+Give: i;
+%%

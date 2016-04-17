@@ -1,0 +1,114 @@
+Program2 Program DOLLAR .
+Program DATA DeclStmt %% FUNCTION FuncStmts %% CODE CodeStmt %% .
+DeclStmt TypeWithoutEnum VarList SEMI_COLON DeclStmt .
+DeclStmt ENUM CURLY_OPEN EnumFields CURLY_CLOSE ID SEMI_COLON DeclStmt .
+DeclStmt EPS .
+TypeWithoutEnum INT .
+TypeWithoutEnum DECI .
+TypeWithoutEnum BOOL .
+TypeWithoutEnum WORD .
+VarList ID Value MoreVars .
+MoreVars COMMA ID Value MoreVars .
+MoreVars EPS .
+Value ASSIGN_OP DecLiteral .
+Value SQ_OPEN INT_LITERAL SQ_CLOSE .
+Value EPS .
+DecLiteral INT_LITERAL .
+DecLiteral WORD_LITERAL . 
+DecLiteral DECI_LITERAL .
+DecLiteral BOOL_LITERAL .
+EnumFields ENUM_LITERAL ASSIGN_OP INT_LITERAL OtherEnumFields .
+OtherEnumFields COMMA ENUM_LITERAL ASSIGN_OP INT_LITERAL OtherEnumFields .
+OtherEnumFields EPS .
+FuncStmts FuncHeader CURLY_OPEN FuncStmt CURLY_CLOSE FuncStmts . 
+FuncStmts EPS .
+FuncHeader FUNC FUNC_ID COLON LHS_Arrow ARROW RHS_Arrow . 
+LHS_Arrow Type ID FuncDefArgs .
+LHS_Arrow VOID .
+Type TypeWithoutEnum .
+Type ENUM .
+FuncDefArgs COMMA Type ID FuncDefArgs .
+FuncDefArgs EPS .
+RHS_Arrow Type MoreReturns .
+RHS_Arrow VOID .
+MoreReturns COMMA Type MoreReturns .
+MoreReturns EPS .
+FuncStmt GIVE COLON ID SEMI_COLON FuncStmt .
+FuncStmt TAKE COLON ID SEMI_COLON FuncStmt .
+FuncStmt WHILE PAREN_OPEN CondExp PAREN_CLOSE CURLY_OPEN FuncStmt CURLY_CLOSE FuncStmt .
+FuncStmt IF PAREN_OPEN CondExp PAREN_CLOSE CURLY_OPEN FuncStmt CURLY_CLOSE ElseStmt FuncStmt .
+FuncStmt Variable ASSIGN_OP Assign FuncStmt .
+FuncStmt TypeWithoutEnum VarList SEMI_COLON FuncStmt .
+FuncStmt ENUM CURLY_OPEN EnumFields CURLY_CLOSE ID SEMI_COLON FuncStmt .
+FuncStmt ReturnStmt FuncStmt .
+FuncStmt FUNC_ID PAREN_OPEN CallArgs PAREN_CLOSE SEMI_COLON FuncStmt .
+FuncStmt EPS .
+ReturnStmt RETURN PAREN_OPEN ReturnValues PAREN_CLOSE SEMI_COLON .
+ReturnValues ID MoreReturnValues .
+ReturnValues VOID .
+MoreReturnValues COMMA ID MoreReturnValues .
+MoreReturnValues EPS .
+CodeStmt AssignStmt CodeStmt .
+CodeStmt IterativeStmt CodeStmt .
+CodeStmt IfElseStmt CodeStmt .
+CodeStmt IOStmt CodeStmt .
+CodeStmt FuncCallStmt CodeStmt .
+CodeStmt EPS .
+FuncCallStmt FUNC_ID PAREN_OPEN CallArgs PAREN_CLOSE SEMI_COLON .
+CallArgs ID MoreCallArgs .
+CallArgs VOID .
+MoreCallArgs COMMA ID MoreCallArgs .
+MoreCallArgs EPS .
+IOStmt GIVE COLON ID SEMI_COLON .
+IOStmt TAKE COLON ID SEMI_COLON .
+IterativeStmt WHILE PAREN_OPEN CondExp PAREN_CLOSE CURLY_OPEN CodeStmt CURLY_CLOSE .
+IfElseStmt IF PAREN_OPEN CondExp PAREN_CLOSE CURLY_OPEN CodeStmt CURLY_CLOSE ElseStmt .
+ElseStmt ELSE CURLY_OPEN CodeStmt CURLY_CLOSE .
+ElseStmt EPS .
+AssignStmt Variable ASSIGN_OP Assign .
+Variable ID ArrayVar .
+ArrayVar SQ_OPEN INT_LITERAL SQ_CLOSE .
+ArrayVar EPS .
+Assign Expression SEMI_COLON .
+Assign Literal SEMI_COLON .
+Assign FuncCallStmt .
+Literal INT_LITERAL .
+Literal Word .
+Literal DECI_LITERAL .
+Literal BOOL_LITERAL .
+Literal ENUM_LITERAL .
+Word WORD_LITERAL MoreWord .
+MoreWord JOIN WORD_LITERAL MoreWord .
+MoreWord EPS .
+CondExp BooleanExp .
+CondExp EnumBoolExp .
+Expression BooleanExp . 
+Expression ArithExp .
+Expression PAREN_OPEN Expression PAREN_CLOSE . 
+BooleanExp LogicalOp LogicalExp LogicalExp .
+BooleanExp NOT LogicalExp .
+BooleanExp RelOp RelExp RelExp . 
+LogicalExp Variable .
+LogicalExp BOOL_LITERAL .
+RelExp ArithExp .
+ArithExp ArithOp ArithExp ArithExp .
+ArithExp Variable .
+ArithExp INT_LITERAL .
+ArithExp DECI_LITERAL . 
+LogicalOp AND .
+LogicalOp OR .
+RelOp EQ .
+RelOp NEQ .
+RelOp GE .
+RelOp LE . 
+RelOp G . 
+RelOp L .
+ArithOp PLUS .
+ArithOp MINUS .
+ArithOp MULT .
+ArithOp DIV .
+ArithOp POW .
+EnumBoolExp EnumOp ID ENUM_LITERAL .
+EnumOp ENUM_EQ .
+EnumOp ENUM_NEQ .
+!

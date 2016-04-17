@@ -1,0 +1,47 @@
+SEMANTIC RULES
+
+/*
+Lexer rules
+A lexeme cannot be longer than 40
+Function Identifiers should start with an '_' and can be up of only alphabets
+Variable names should start with an Alphabet (Small case/Upper case). Whenever it starts with '_', it is considered func_id
+Our language is case sensitive, thus variables 'cnt' and 'Cnt' are not same.
+*/
+
+(A.) ABOUT IDENTIFIERS
+1. An identifier, if declared, can be used directly without initialisation. It is initialised to its default value depending on its data type.
+2. An identifier cannot be declared multiple times in the same scope. Not even with a different type.
+3. An identifier must be declared before its use.
+4. Two identifiers can have same name but they should have different scopes.
+5. If both local and global are available, the local value will be used inside the function. If only global is available, that one will be used.
+6. Cannot re-declare an argument as a variable inside the function body.
+7. It is not possible to declare 2 vables with same name but different types.
+8. Cannot declare an array of length 0.
+
+(B.) FUNCTION ARGUMENTS AND RETURN TYPES
+9. The data type, number and position of the Formal arguments and the passed parameters (when the function call is being made) should be the same.
+10. Return type (as given in function header) and the type of identifier in the return statement should be the same.
+
+
+(C.) EXPRESSIONS
+11. The right hand side expression of an assignment statement must be of the same type as that of the left hand side identifier. If they are not, they`ll be converted implicitly wherever possible.
+12. The array index specified for any variable must be between 0 and (len-1) where len is the length of the array.
+
+
+(D.) FUNCTIONS
+13. Function overloading is allowed: Two functions can have same name, same return type but the data type of arguments/parameters (in the function definition) or their no of arguments should be different.
+Explanation: If 2 functions are declared with same signatures (same no of arguments and same data type of all arguments), then 
+it will throw an error.
+14. Recursion is not allowed.
+
+
+(E.) IMPLICIT TYPE CONVERSIONS
+15. Narrowing conversion: deci will be narrowed down to int in an expression containing identifiers of type deci and int.
+16. int will be converted to bool (only if given as an identifier, not as an INT_LITERAL). So bool b = 5; is allowed
+17. No type conversions while function calls, the variables data types should be exactly same as that given in Function Header
+18. The Enum_Literal being assigned to/compared to an Enum variable must be one of its Enum Fields
+
+(F.) DATA TYPES
+19. Enum Fields for a given enum variable can take any (distinct) integer values.
+20. Two different enum fields cannot be assigned the same integer value.
+21. Default value assigned to an Enum Variable is its first enum field.

@@ -1,0 +1,36 @@
+#-------------------Test Case - 2-----------------#
+DATA
+int i1 = 9, i2 = 26, i3;
+int arr[20];
+deci d1 = 0.7, d2 = 1.3, d3;
+word w1 = "Compiler ", w2 = "Construction", w3;
+#word w3;#
+%%
+
+FUNCTION
+FUNC _sum: int a, int b -> int
+{
+	int ans;
+#	if(> ans 0) { ans = 5; }#
+#	else { ans = 2; }#
+	while(> ans 0) { ans = - ans 1;}
+	ans = + a b;
+	@(ans);
+}
+
+FUNC _sum: deci a, deci b -> deci
+{
+	deci ans;
+	ans = + a b;
+	@(ans);
+}
+%%
+
+CODE
+i3 = _sum(d1, i2);
+Give: i3;
+d3 = _sum(d1, d2);
+Give: d3;
+w3 = "A" JOIN "B" JOIN "C";
+Give: w3;
+%%

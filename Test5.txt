@@ -1,0 +1,30 @@
+#-------------------Test Case - 5-----------------#
+DATA
+int cnt = 5;
+%%
+
+FUNCTION
+FUNC _fa: int a -> void
+{
+bool b = 5;
+@(void);
+}
+
+FUNC _fa: int b, int a -> void
+{
+int c = 1;
+bool d = FALSE;
+bool e;
+e = && c d;
+@(void);
+}
+
+%%
+
+CODE
+while(> cnt 0)
+{
+	cnt = - cnt 1;
+	Give: cnt;
+}
+%%

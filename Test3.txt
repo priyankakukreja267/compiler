@@ -1,0 +1,22 @@
+#-------------------Test Case - 3-----------------#
+DATA
+int a = 8, b = 4;
+int nums[4];
+%%
+
+FUNCTION
+#FUNC _f: int a ->int#
+#{#
+#int a[1], b;#
+#@(a);#
+#int l;#
+#int l;#
+#}#
+%%
+
+CODE
+nums[0] = + a b;
+nums[1] = - a b;
+nums[2] = * a b;
+nums[3] = / a b;
+%%
